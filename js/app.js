@@ -14,6 +14,13 @@ const CheckList = {
             localStorage.setItem('CheckListAppLists', JSON.stringify(storage))
         }
 
+        const db = getDatabase();
+        
+        onValue(ref(db, 'lists/' + this.choice), (snapshot) => {
+            this.setList(cd)
+            
+        })
+
     },
     data() {
         return {
@@ -83,7 +90,7 @@ const CheckList = {
         },
         setList(){            
             this.choice = this.choice.toLowerCase()
-            const dbRef = ref(getDatabase());
+            const dbRef = ref(getDatabase())
             get(child(dbRef, `lists/${this.choice}`)).then((snapshot) => {
               if (snapshot.exists()) {
                 this.atual = snapshot.val()
