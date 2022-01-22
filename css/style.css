@@ -1,0 +1,35 @@
+#app {
+  max-width: 400px;
+  margin: auto;
+  padding: 10px;
+}
+
+#top {
+  position: absolute;
+}
+
+#title {
+  font-weight: bold;
+}
+
+#controls {
+  display: flex;
+}
+
+#list {
+  margin-top: 70px !important;
+}
+
+.icon {
+  width: 20px;
+}
+
+.icon-btn {
+  width: 20px;
+  margin-left: 20px;
+}
+
+.checked_item {
+  text-decoration: line-through;
+  color: gray;
+}
