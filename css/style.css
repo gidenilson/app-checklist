@@ -2,14 +2,13 @@
   max-width: 400px;
   margin: auto;
   padding: 10px;
-  background-color: bisque;
 }
 
 #top {
   position: fixed;
   top: 0;
   background-color: bisque;
-  width: 100%;
+  width: 96%;
   max-width: 400px;
   padding: 5px;
   margin:0;
@@ -28,7 +27,7 @@
 
 #list {
   margin-top: 70px !important;
-  background-color: white;
+
 }
 
 .icon {
