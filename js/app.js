@@ -82,7 +82,7 @@ const CheckList = {
             fb_update(ref(db), updates);
         },
         setList(){            
-
+            this.choice = this.choice.toLowerCase()
             const dbRef = ref(getDatabase());
             get(child(dbRef, `lists/${this.choice}`)).then((snapshot) => {
               if (snapshot.exists()) {
