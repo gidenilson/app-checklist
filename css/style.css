@@ -2,6 +2,7 @@
   max-width: 400px;
   margin: auto;
   padding: 10px;
+  background-color: bisque;
 }
 
 #top {
@@ -27,6 +28,7 @@
 
 #list {
   margin-top: 70px !important;
+  background-color: white;
 }
 
 .icon {
