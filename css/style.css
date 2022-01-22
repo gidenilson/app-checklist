@@ -5,11 +5,17 @@
 }
 
 #top {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  background-color: bisque;
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
 }
 
 #title {
   font-weight: bold;
+  margin-top: 5px;
 }
 
 #controls {
