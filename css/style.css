@@ -8,16 +8,16 @@
   position: fixed;
   top: 0;
   background-color: bisque;
-  width: 96%;
+  width: 100%;
   max-width: 400px;
-  padding: 5px 0;
-  margin:0;
+  padding: 5px;
+  margin: 0;
 }
 
-
-#cod{
-  max-width: 50%;
+#cod {
+  width: 50%;
 }
+
 #title {
   font-weight: bold;
   margin-top: 5px;
@@ -29,7 +29,6 @@
 
 #list {
   margin-top: 70px !important;
-
 }
 
 .icon {
