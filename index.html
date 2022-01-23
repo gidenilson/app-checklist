@@ -5,20 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/uikit.min.css">
     <link rel="shortcut icon" href="assets/icon/icon.png">
-
     <link rel="stylesheet" href="css/style.css">
-
     <title>CheckList</title>
 </head>
-
 <body>
     <div id="app">
+
         <div id="top">
             <div id="controls">
-                
-                <input list="cods" class="uk-input uk-form-small" type="text" id="cod" v-model="choice" @keyup="setList()">
+                <input list="cods" class="input-small" type="text" id="cod" v-model="choice"
+                    @keyup="setList()">
                 <datalist id="cods">
                     <option v-for="item in cachedCods" :key="item" :value="item" />
                 </datalist>
@@ -26,34 +23,36 @@
                 <img @click="undoList()" class="icon-btn" src="assets/icon/recycle-solid.svg">
                 <img @click="clearCache()" class="icon-btn" src="assets/icon/eraser-solid.svg">
                 <img @click="removeList()" class="icon-btn" src="assets/icon/trash-alt-solid.svg">
-
             </div>
-
-            <input id="title" class="uk-input uk-form-small" type="text"  v-model="atual.title" @change="update()">
-
-            
+            <input id="title" class="input-medium" type="text" v-model="atual.title" @change="update()">
         </div>
-        <div id="list" class="uk-margin">
-            <table class="uk-table uk-table-small uk-table-divider">
+        <div id="list">
+            <table>
                 <tbody>
-                    <tr v-for="item in atual.itens">
-                        <td @dblclick="toggle(item)" :class="{ checked_item: item.checked }">{{ item.title }}</td>
-                        <td><img class="icon" @click="removeItem(item)" src="assets/icon/trash-solid.svg"></td>
+                    <tr v-for="item in atual.itens" @dblclick="toggle(item)">
+                        <td  :class="{ checked_item: item.checked }">{{ item.title }}</td>
+                        <td class="last-td"><img class="icon" @click="removeItem(item)" src="assets/icon/trash-solid.svg"></td>
                     </tr>
                     <tr>
                 </tbody>
             </table>
-            <input class="uk-input uk-form-small uk-form-width-medium" type="text" id="cod" v-model="newItem">
+            <input class="input-small" type="text" id="cod" v-model="newItem">
             <img @click="createItem()" class="icon-btn" src="assets/icon/plus-circle-solid.svg">
             <img @click="undoItem()" class="icon-btn" src="assets/icon/recycle-solid.svg">
         </div>
-
+        <div id="help">
+            <h2>Como usar</h2>
+            <ol>
+                <li>Clique no (+) no topo do app.</li>
+                <li>Abaixo do código criado, altere o nome da lista.</li>
+                <li>Na caixa de texto inferior escreva o item e clique no (+)</li>
+            </ol>
+        </div>
     </div>
+
     <script src="js/firebase.js" type="module"></script>
     <script src="lib/vue.js"></script>
-
     <script src="js/utils.js"></script>
     <script src="js/app.js" type="module"></script>
 </body>
-
 </html>
