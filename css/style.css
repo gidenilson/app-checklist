@@ -40,7 +40,11 @@
   margin-left: 20px;
 }
 
+tr {
+  color: chocolate;
+}
+
 .checked_item {
   text-decoration: line-through;
-  color: gray;
+  color: #BBBBBB;
 }
