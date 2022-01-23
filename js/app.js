@@ -17,7 +17,7 @@ const CheckList = {
         const db = getDatabase();
         
         onValue(ref(db, 'lists/' + this.choice), (snapshot) => {
-            this.setList(cd)
+            this.setList()
             
         })
 
