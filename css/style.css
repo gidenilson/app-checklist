@@ -1,26 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #app {
   max-width: 400px;
   margin: auto;
-  padding: 10px;
 }
 
 #top {
-  position: fixed;
-  top: 0;
   background-color: bisque;
-  width: 100%;
-  max-width: 400px;
-  padding: 5px;
-  margin: 0;
+  padding: 10px;
 }
 
 #cod {
-  width: 50%;
+  width: 40%;
 }
 
 #title {
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 10px;
+  width: 90%;
+  border: none;
+  border-bottom: 1px dashed #BBBBBB;
+  background-color: bisque;
 }
 
 #controls {
@@ -28,7 +32,7 @@
 }
 
 #list {
-  margin-top: 70px !important;
+  padding: 10px;
 }
 
 .icon {
@@ -40,11 +44,40 @@
   margin-left: 20px;
 }
 
+table,
+td,
+th {
+  border-bottom: 1px solid #cecece;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+td {
+  padding: 3px;
+}
+
 tr {
   color: chocolate;
+}
+
+.last-td {
+  text-align: right;
 }
 
 .checked_item {
   text-decoration: line-through;
   color: #BBBBBB;
+}
+
+#help {
+  background-color: bisque;
+  font-size: 0.7rem;
+  padding: 10px;
+}
+#help li {
+  margin-left: 10px;
 }
