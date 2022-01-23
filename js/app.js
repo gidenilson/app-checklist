@@ -94,12 +94,13 @@ const CheckList = {
             fb_update(ref(db), updates);
         },
         setList(){            
-            if(this.choice) {
-                this.choice = this.choice.toLowerCase()
-            }
+            
             localStorage.setItem('CheckListLastList', this.choice)
             const dbRef = ref(getDatabase())
-            get(child(dbRef, `lists/${this.choice}`)).then((snapshot) => {
+            if(!this.choice){
+                return
+            }
+            get(child(dbRef, `lists/${this.choice.toLowerCase()}`)).then((snapshot) => {
               if (snapshot.exists()) {
                 this.atual = snapshot.val()
                 if(this.atual.itens == undefined){
