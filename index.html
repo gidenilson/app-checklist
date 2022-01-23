@@ -6,23 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/uikit.min.css">
-   <link rel="shortcut icon" href="assets/icon/icon.png">
+    <link rel="shortcut icon" href="assets/icon/icon.png">
+
     <link rel="stylesheet" href="css/style.css">
 
     <title>CheckList</title>
 </head>
 
 <body>
-    <div id="app" class="uk-container">
+    <div id="app">
         <div id="top">
             <div id="controls">
+                
                 <input list="cods" class="uk-input uk-form-small" type="text" id="cod" v-model="choice" @keyup="setList()">
                 <datalist id="cods">
                     <option v-for="item in cachedCods" :key="item" :value="item" />
                 </datalist>
                 <img @click="createNew()" class="icon-btn" src="assets/icon/plus-circle-solid.svg">
                 <img @click="undoList()" class="icon-btn" src="assets/icon/recycle-solid.svg">
+                <img @click="clearCache()" class="icon-btn" src="assets/icon/eraser-solid.svg">
                 <img @click="removeList()" class="icon-btn" src="assets/icon/trash-alt-solid.svg">
+
             </div>
 
             <input id="title" class="uk-input uk-form-small" type="text"  v-model="atual.title" @change="update()">
