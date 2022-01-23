@@ -100,7 +100,8 @@ const CheckList = {
             if(!this.choice){
                 return
             }
-            get(child(dbRef, `lists/${this.choice.toLowerCase()}`)).then((snapshot) => {
+            
+            get(child(dbRef, `lists/${this.choice.toLowerCase().trim()}`)).then((snapshot) => {
               if (snapshot.exists()) {
                 this.atual = snapshot.val()
                 if(this.atual.itens == undefined){
