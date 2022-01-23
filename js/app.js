@@ -82,7 +82,7 @@ const CheckList = {
         
         createItem(){
             if(this.newItem.trim() != '' && this.atual.title != ''){
-                this.atual.itens.push({title: this.newItem, checked: false})
+                this.atual.itens.push({title: this.newItem.trim(), checked: false})
                 this.newItem = ''
                 this.update()
             }
@@ -139,6 +139,10 @@ const CheckList = {
 
         },
         removeList(){
+            this.choice = this.choice.trim()
+            if(this.choice == ''){
+                return
+            }
             this.trashList.push(this.atual)
             const db = getDatabase()
             remove(ref(db, 'lists/' + this.choice))
