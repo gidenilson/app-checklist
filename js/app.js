@@ -64,7 +64,7 @@ const CheckList = {
         createNew(){
             const utils = new Utils()
             const list = {cod: utils.nameGenerate(4, false)}
-            list.title = 'nova lista'
+            list.title = 'clique aqui para editar o assunto da lista'
             this.choice = list.cod
             this.atual = list
             this.atual.itens = []
@@ -141,8 +141,9 @@ const CheckList = {
         removeList(){
             this.trashList.push(this.atual)
             const db = getDatabase()
-            remove(ref(db, 'lists/' + this.atual.cod))
+            remove(ref(db, 'lists/' + this.choice))
             this.atual = this.empty
+            this.choice = ''
 
         },
         undoItem(){
