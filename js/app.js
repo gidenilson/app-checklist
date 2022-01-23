@@ -2,15 +2,16 @@ import { getDatabase, ref, set, onValue, remove, get, child, update as fb_update
 
 const CheckList = {
     created(){
-        
+        let last = localStorage.getItem('CheckListLastList')
+        this.choice = last != undefined ? last : ''
         let storage = JSON.parse(localStorage.getItem('CheckListAppLists'))
         if(storage){
             storage.lists.forEach(list => {
-                this.cachedCods.push(list)
-             
+                this.cachedCods.push(list)             
             })
+           
         }else{
-            storage = {lists: []}
+            storage = {lists: [], last: this.choice}
             localStorage.setItem('CheckListAppLists', JSON.stringify(storage))
         }
 
@@ -56,6 +57,10 @@ const CheckList = {
         }
     },
     methods: {
+        clearCache(){
+            localStorage.removeItem('CheckListAppLists')
+            this.cachedCods = []
+        },
         createNew(){
             const utils = new Utils()
             const list = {cod: utils.nameGenerate(4, false)}
@@ -89,7 +94,10 @@ const CheckList = {
             fb_update(ref(db), updates);
         },
         setList(){            
-            this.choice = this.choice.toLowerCase()
+            if(this.choice) {
+                this.choice = this.choice.toLowerCase()
+            }
+            localStorage.setItem('CheckListLastList', this.choice)
             const dbRef = ref(getDatabase())
             get(child(dbRef, `lists/${this.choice}`)).then((snapshot) => {
               if (snapshot.exists()) {
@@ -101,7 +109,7 @@ const CheckList = {
                 let storage = JSON.parse(localStorage.getItem('CheckListAppLists'))
                 if(storage){
                     if(storage.lists.find(cod=> cod == this.choice) == undefined){
-                        storage.lists.push(this.choice)
+                        storage.lists.push(this.choice)                        
                         localStorage.setItem('CheckListAppLists', JSON.stringify(storage))
                     }
                 }
